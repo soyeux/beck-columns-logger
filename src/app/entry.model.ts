@@ -8,3 +8,14 @@ export interface Entry {
     alternativeThough: string;
     consequences: string;
 }
+
+export interface SerializedEntry {
+    id: number;
+    date: string;
+    situation: string;
+    emotion: string;
+    autoThough: string;
+    behavior: string;
+    alternativeThough: string;
+    consequences: string;
+}

@@ -1,0 +1,18 @@
+
+.panelbodywrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.panelcontent {
+    display: flex;
+    flex-direction: column;
+}
+
+.panelfooter {
+    display: flex;
+    flex-direction: row;
+    button {
+        flex: auto
+    }
+}

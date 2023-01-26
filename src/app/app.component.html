@@ -1,8 +1,10 @@
-<div class="app">
+<div class="app mat-app-background">
   
-  <button (click)="addEntry()">Add</button>
+  <button color="primary" mat-icon-button (click)="addEntry()">
+        <mat-icon>add</mat-icon>
+  </button>
   <div *ngFor="let e of (getEntries() | async)">
-    <app-entry></app-entry>
+    <app-entry [entry]="e" ></app-entry>
   </div>
 
 

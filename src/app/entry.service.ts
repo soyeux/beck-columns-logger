@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { TitleStrategy } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { Entry } from './entry.model';
+import { BehaviorSubject, map, Observable, of } from 'rxjs';
+import { Entry, SerializedEntry } from './entry.model';
 
 
 const storageKey = "entries"
@@ -11,38 +11,45 @@ const storageKey = "entries"
 })
 export class EntryService {
 
-  private entries: Entry[] = [];
+  private entries: BehaviorSubject<Entry[]>;
 
   constructor() { 
-    this.init()
-  }
-
-  init() {
     const items = localStorage.getItem(storageKey);
-    if (items != null) {
-      this.entries = JSON.parse(items);
+    if (items!= null) {
+      const s: SerializedEntry[] = JSON.parse(items);
+      const entries: Entry[] = [];
+      for (const se of s) {
+        entries.push({
+          ...se,
+          date: new Date(Date.parse(se.date))
+        })
+      }
+      this.entries = new BehaviorSubject(entries); 
+    } else {
+      this.entries = new BehaviorSubject<Entry[]>([]); 
+    
     }
   }
 
+
   store() {
-    localStorage.setItem(storageKey, JSON.stringify(this.entries))
+    localStorage.setItem(storageKey, JSON.stringify(this.entries.value))
   }
 
   get() {
-    this.entries.sort((a, b) => a.date.valueOf() - b.date.valueOf());
-    return of(this.entries);
+    return this.entries;
   }
 
   add() {
     let maxId = 0
-    for (const entry of this.entries) {
+    for (const entry of this.entries.value) {
       if (entry.id > maxId) {
         maxId = entry.id;
       }
     }
 
     const entry: Entry = {
-      id: maxId++,
+      id: ++maxId,
       date: new Date(),
       situation: '',
       emotion: '',
@@ -53,20 +60,20 @@ export class EntryService {
     }
 
     
-    this.entries = [...this.entries, entry]
+    this.entries.next([...this.entries.value, entry])
     this.store();
     return of();
   }
 
   remove(id: number) {
-    this.entries = this.entries.filter(item => item.id !== id);
+    this.entries.next(this.entries.value.filter(item => item.id !== id));
     this.store();
     return of();
   }
 
   edit(entry: Entry) {
-    const i = this.entries.indexOf(entry)
-    this.entries = [...this.entries.slice(0, i), entry, ...this.entries.slice(i+1)]
+    const i = this.entries.value.indexOf(entry)
+    this.entries.next([...this.entries.value.slice(0, i), entry, ...this.entries.value.slice(i+1)])
     this.store()
     return of()
       

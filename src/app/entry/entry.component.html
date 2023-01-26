@@ -1,15 +1,26 @@
-<p>entry works!</p>
 <mat-accordion>
     <mat-expansion-panel hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          This is the expansion title
+          {{entry.id}} - {{entry.date | date:'LL/MM/yyyy - HH:mm'}}
         </mat-panel-title>
-        <mat-panel-description>
-          This is a summary of the content
-        </mat-panel-description>
       </mat-expansion-panel-header>
-      <p>This is the primary content of the panel.</p>
+      <div class="panelbodywrapper">
+        <div class="panelcontent">
+            <p>{{entry |json}}</p>
+        </div>
+        <div class="panelfooter">
+            <button color="warn" mat-icon-button>
+                <mat-icon>delete</mat-icon>
+            </button>
+            <button color="accent" mat-icon-button>
+                <mat-icon>cancel</mat-icon>
+            </button>
+            <button color="primary" (click)="submit()" mat-icon-button>
+                <mat-icon>save</mat-icon>
+            </button>
+        </div>
+      </div>
     </mat-expansion-panel>
   </mat-accordion>
   
