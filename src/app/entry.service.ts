@@ -72,8 +72,10 @@ export class EntryService {
   }
 
   edit(entry: Entry) {
-    const i = this.entries.value.indexOf(entry)
-    this.entries.next([...this.entries.value.slice(0, i), entry, ...this.entries.value.slice(i+1)])
+    // const i = this.entries.value.indexOf(entry)
+    const i = this.entries.value.filter(item => item.id !== entry.id);
+    this.entries.next([...i, entry])
+    console.log(this.entries);
     this.store()
     return of()
       

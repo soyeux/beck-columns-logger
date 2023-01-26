@@ -4,7 +4,7 @@
         <mat-icon>add</mat-icon>
   </button>
   <div *ngFor="let e of (getEntries() | async)">
-    <app-entry [entry]="e" ></app-entry>
+    <app-entry [entry]="e"  (save)="save($event)"></app-entry>
   </div>
 
 

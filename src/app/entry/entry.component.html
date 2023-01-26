@@ -2,12 +2,23 @@
     <mat-expansion-panel hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
-          {{entry.id}} - {{entry.date | date:'LL/MM/yyyy - HH:mm'}}
+          {{entry.id}} - {{entry.date | date:'dd/MM/yyyy - HH:mm'}}
         </mat-panel-title>
       </mat-expansion-panel-header>
       <div class="panelbodywrapper">
-        <div class="panelcontent">
+        <div *ngIf="form != null" class="panelcontent">
             <p>{{entry |json}}</p>
+            <form [formGroup]="form">
+                <!-- <ngx-mat-datetime-picker formControlName="date"></ngx-mat-datetime-picker> -->
+
+                <mat-form-field>
+                    <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date" formControlName="date">
+                    <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+                    <ngx-mat-datetime-picker #picker [touchUi]="true">
+                    </ngx-mat-datetime-picker>
+                 </mat-form-field>
+
+            </form>
         </div>
         <div class="panelfooter">
             <button color="warn" mat-icon-button>

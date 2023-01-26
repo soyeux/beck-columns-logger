@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Entry } from '../entry.model';
 
@@ -10,6 +10,7 @@ import { Entry } from '../entry.model';
 export class EntryComponent implements OnChanges {
   @Input() entry!: Entry;
   @Output() save: EventEmitter<Entry> = new EventEmitter();
+  @ViewChild('picker') picker: any;
   form: FormGroup | undefined;
 
   constructor(private fb: FormBuilder) {

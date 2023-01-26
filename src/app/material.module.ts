@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import {A11yModule} from '@angular/cdk/a11y';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
 import {ClipboardModule} from '@angular/cdk/clipboard';
@@ -46,6 +46,21 @@ import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {CdkMenuModule} from '@angular/cdk/menu';
 import {DialogModule} from '@angular/cdk/dialog';
+import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule, NGX_MAT_DATE_FORMATS } from '@angular-material-components/datetime-picker';
+
+
+export const DATETIME_FORMATS = {
+  parse: {
+    dateInput: 'l, L, LTS',
+  },
+  display: {
+    dateInput: 'DD/MM/YY HH:mm',
+    monthYearLabel: 'MMM YYYY',
+    dateA11yLabel: 'LL',
+    monthYearA11yLabel: 'MMMM-YYYY',
+  },
+};
+
 
 @NgModule({
   exports: [
@@ -97,6 +112,13 @@ import {DialogModule} from '@angular/cdk/dialog';
     PortalModule,
     ScrollingModule,
     DialogModule,
-  ]
+    NgxMatNativeDateModule,
+    NgxMatTimepickerModule,
+    NgxMatDatetimePickerModule,
+  ],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'fr' },
+      { provide: NGX_MAT_DATE_FORMATS, useValue: DATETIME_FORMATS }
+    ]
 })
 export class MaterialModule { }
