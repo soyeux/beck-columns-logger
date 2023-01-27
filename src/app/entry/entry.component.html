@@ -1,37 +1,171 @@
-<mat-accordion>
-    <mat-expansion-panel hideToggle>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          {{entry.id}} - {{entry.date | date:'dd/MM/yyyy - HH:mm'}}
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <div class="panelbodywrapper">
-        <div *ngIf="form != null" class="panelcontent">
-            <p>{{entry |json}}</p>
-            <form [formGroup]="form">
-                <!-- <ngx-mat-datetime-picker formControlName="date"></ngx-mat-datetime-picker> -->
-
-                <mat-form-field>
-                    <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date" formControlName="date">
-                    <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
-                    <ngx-mat-datetime-picker #picker [touchUi]="true">
-                    </ngx-mat-datetime-picker>
-                 </mat-form-field>
-
-            </form>
+<mat-expansion-panel hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{entry.id}} - {{entry.date | date:'dd/MM/yyyy - HH:mm'}}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="panelbodywrapper">
+    <div *ngIf="form != null">
+      <form [formGroup]="form" class="panelcontent">
+        <div>
+          <mat-card>
+            <mat-card-title>Date</mat-card-title>
+            <mat-card-content>
+              <mat-form-field>
+                <input matInput [ngxMatDatetimePicker]="picker" placeholder="Choose a date" formControlName="date">
+                <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+                <ngx-mat-datetime-picker #picker [touchUi]="true">
+                </ngx-mat-datetime-picker>
+              </mat-form-field>
+            </mat-card-content>
+          </mat-card>
         </div>
-        <div class="panelfooter">
-            <button color="warn" mat-icon-button>
-                <mat-icon>delete</mat-icon>
-            </button>
-            <button color="accent" mat-icon-button>
-                <mat-icon>cancel</mat-icon>
-            </button>
-            <button color="primary" (click)="submit()" mat-icon-button>
-                <mat-icon>save</mat-icon>
-            </button>
+        <div>
+          <mat-card>
+            <mat-card-title>Situation</mat-card-title>
+            <mat-card-content>
+              <mat-form-field appearance="fill">
+                <textarea matInput formControlName="situation"></textarea>
+              </mat-form-field>
+            </mat-card-content>
+            <mat-card-footer><small>
+                <em>Quel est l’évènement
+                  précis, la pensée ou le
+                  souvenir qui a amené à
+                  une émotion
+                  désagréable, négative</em>
+              </small></mat-card-footer>
+          </mat-card>
         </div>
-      </div>
-    </mat-expansion-panel>
-  </mat-accordion>
-  
+        <div>
+          <mat-card>
+            <mat-card-title>Emotions (je me sens...)</mat-card-title>
+            <mat-card-content>
+              <mat-form-field appearance="fill">
+                <textarea matInput formControlName="emotion"></textarea>
+              </mat-form-field>
+            </mat-card-content>
+            <mat-card-footer><small>
+                <em>Quelle(s) émotion(s)
+                  avez-vous ressentie sur le
+                  moment ? Quelles ont
+                  été les sensations
+                  physiques
+                  désagréables ?
+                  Quelle était l’intensité de
+                  ces émotions (0-100%) ?</em>
+              </small></mat-card-footer>
+          </mat-card>
+        </div>
+        <div>
+          <mat-card>
+            <mat-card-title>Pensées automatiques</mat-card-title>
+            <mat-card-content>
+              <mat-form-field appearance="fill">
+                <textarea matInput formControlName="autoThough"></textarea>
+              </mat-form-field>
+            </mat-card-content>
+            <mat-card-footer><small>
+                <em>Quelles pensées et/ou
+                  images ont
+                  accompagnées ces
+                  émotions ?
+                  À combien avez-vous cru
+                  à chacune d’entre elles
+                  sur le moment
+                  (0-100%) ?</em>
+              </small></mat-card-footer>
+          </mat-card>
+        </div>
+
+        <div>
+          <mat-card>
+            <mat-card-title>Comportement (je fais)</mat-card-title>
+            <mat-card-content>
+              <mat-form-field appearance="fill">
+                <textarea matInput formControlName="behavior"></textarea>
+              </mat-form-field>
+            </mat-card-content>
+            <mat-card-footer><small>
+                <em>Quel comportement
+                  avez-vous adopté ?</em>
+              </small></mat-card-footer>
+          </mat-card>
+        </div>
+
+        <div>
+          <mat-card>
+            <mat-card-title>Pensées alternatives<br>Le questionnement des pensées</mat-card-title>
+            <mat-card-content>
+              <mat-form-field appearance="fill">
+                <textarea matInput formControlName="alternativeThough"></textarea>
+              </mat-form-field>
+            </mat-card-content>
+            <mat-card-footer>
+              <small>
+                <em>Quelles distorsions
+                  cognitives avez-vous
+                  faites ?
+                  Utilisez les questions en
+                  bas de page pour
+                  trouver des réponses aux
+                  pensées automatiques
+                  À combien croyez-vous à
+                  chacune d’entre elles
+                  (0-100%) ?</em>
+              </small>
+              <p>
+                <small><em>
+                  Questions pour aider à formuler des pensées alternatives : Quelles preuves viennent supporter cette
+                  idée ? Quelles preuves vont à l'inverse ? Il y a-t-il une autre
+                  interprétation ou un autre point de vue ? Que pourrait-il arriver de pire et pourrais-je y faire face
+                  ? Que pourrait-il arriver de meilleur ? Qu'est-ce qui est le plus
+                  réaliste ? Quel est l'effet de ma pensée automatique ? Que pourrait être l'effet d'un changement de
+                  cette pensée ? Que penserait ou dirait _____ dans cette
+                  situation ? Si ____ pensait cela dans cette situation, que lui dirais-je ? Que dois-je faire ?
+                </em></small>
+              </p>
+            </mat-card-footer>
+          </mat-card>
+        </div>
+
+
+        <div>
+          <mat-card>
+            <mat-card-title>Conséquences</mat-card-title>
+            <mat-card-content>
+              <mat-form-field appearance="fill">
+                <textarea matInput formControlName="consequences"></textarea>
+              </mat-form-field>
+            </mat-card-content>
+            <mat-card-footer><small>
+                <em>Quelle(s) émotion(s)
+                  ressentez-vous
+                  maintenant ? Avec quelle
+                  intensité (0-100%)
+                  Qu’allez-vous faire ?
+                  Inscrire comment
+                  adapter son
+                  comportement suite à
+                  cette nouvelle façon de
+                  voir les choses</em>
+              </small></mat-card-footer>
+          </mat-card>
+        </div>
+
+      </form>
+
+    </div>
+    <div class="panelfooter">
+      <button color="warn" mat-icon-button>
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button color="accent" mat-icon-button>
+        <mat-icon>cancel</mat-icon>
+      </button>
+      <button color="primary" (click)="submit()" mat-icon-button>
+        <mat-icon>save</mat-icon>
+      </button>
+    </div>
+  </div>
+</mat-expansion-panel>

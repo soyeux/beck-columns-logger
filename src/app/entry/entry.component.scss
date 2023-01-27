@@ -7,6 +7,21 @@
 .panelcontent {
     display: flex;
     flex-direction: column;
+    gap: 20px;
+
+    mat-card {
+        padding: 15px;
+    }
+
+    mat-card-title {
+        padding-bottom: 10px;
+    }
+
+    mat-card-footer {
+        padding-left: 15px;
+        padding-right: 15px;
+        text-align: justify;
+    }
 }
 
 .panelfooter {

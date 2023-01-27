@@ -1,11 +1,10 @@
-<div class="app mat-app-background">
-  
+<div class="app">
   <button color="primary" mat-icon-button (click)="addEntry()">
-        <mat-icon>add</mat-icon>
+    <mat-icon>add</mat-icon>
   </button>
-  <div *ngFor="let e of (getEntries() | async)">
-    <app-entry [entry]="e"  (save)="save($event)"></app-entry>
-  </div>
-
-
+  <mat-accordion>
+    <div *ngFor="let e of (getEntries() | async)">
+      <app-entry [entry]="e" (save)="save($event)"></app-entry>
+    </div>
+  </mat-accordion>
 </div>
