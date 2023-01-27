@@ -62,22 +62,21 @@ export class EntryService {
     
     this.entries.next([...this.entries.value, entry])
     this.store();
-    return of();
   }
 
   remove(id: number) {
     this.entries.next(this.entries.value.filter(item => item.id !== id));
     this.store();
-    return of();
   }
 
   edit(entry: Entry) {
-    // const i = this.entries.value.indexOf(entry)
     const i = this.entries.value.filter(item => item.id !== entry.id);
-    this.entries.next([...i, entry])
-    console.log(this.entries);
-    this.store()
-    return of()
-      
+    this.entries.next([...i, entry]);
+    this.store();
+  }
+
+  deleteAll() {
+    this.entries.next([]);
+    this.store();
   }
 }

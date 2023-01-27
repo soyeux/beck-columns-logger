@@ -10,6 +10,7 @@ import { Entry } from '../entry.model';
 export class EntryComponent implements OnChanges {
   @Input() entry!: Entry;
   @Output() save: EventEmitter<Entry> = new EventEmitter();
+  @Output() delete: EventEmitter<Entry> = new EventEmitter();
   @ViewChild('picker') picker: any;
   form: FormGroup | undefined;
 
@@ -30,6 +31,14 @@ export class EntryComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    this.initForm()
+  }
+
+  deleteEntry() {
+    this.delete.emit(this.entry)
+  }
+
+  cancel() {
     this.initForm()
   }
 

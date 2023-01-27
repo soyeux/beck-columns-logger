@@ -157,10 +157,10 @@
 
     </div>
     <div class="panelfooter">
-      <button color="warn" mat-icon-button>
+      <button color="warn" (click)="deleteEntry()" mat-icon-button>
         <mat-icon>delete</mat-icon>
       </button>
-      <button color="accent" mat-icon-button>
+      <button color="accent" (click)="cancel()" mat-icon-button>
         <mat-icon>cancel</mat-icon>
       </button>
       <button color="primary" (click)="submit()" mat-icon-button>

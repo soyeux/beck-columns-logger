@@ -1,3 +1,17 @@
 .app {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.appToolbar {
+    display: flex;
+    flex-direction: row;
+    div {
+        flex: auto;
+    }
+
+    .exportButton {
+        margin: 8px;
+    }
 }
