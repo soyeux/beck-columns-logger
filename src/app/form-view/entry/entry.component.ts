@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Entry } from '../entry.model';
+import { Entry } from '../../entry.model';
 
 @Component({
   selector: 'app-entry',

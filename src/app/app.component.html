@@ -1,22 +1,11 @@
 <div class="app">
   <div class="appToolbar">
-    <button color="primary" mat-icon-button (click)="addEntry()">
-      <mat-icon>add</mat-icon>
-    </button>
+    <a routerLink="/form"><button class="toolbarButton" mat-raised-button> Formulaire </button></a>
+    <a routerLink="/table"><button class="toolbarButton" mat-raised-button> Grille </button></a>
     <div></div>
-    <button class="exportButton" color="primary" mat-raised-button (click)="export()">
-      Exporter
+    <button class="toolbarButton" color="primary" mat-raised-button (click)="export()">
+        Export JSON
     </button>
-  </div>
-  <mat-accordion>
-    <div *ngFor="let e of (getEntries() | async)">
-      <app-entry [entry]="e" (save)="save($event)" (delete)="delete($event)"></app-entry>
-    </div>
-  </mat-accordion>
-  <div>
-    <button mat-raised-button color="warn" (click)="deleteAll()">
-      <mat-icon>delete</mat-icon> Tout supprimer
-    </button>
-  </div>
-
+</div>
+  <router-outlet></router-outlet>
 </div>

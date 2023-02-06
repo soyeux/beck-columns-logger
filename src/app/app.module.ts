@@ -7,16 +7,20 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { EntryComponent } from './entry/entry.component';
+import { EntryComponent } from './form-view/entry/entry.component';
 
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { TableViewComponent } from './table-view/table-view.component';
+import { FormViewComponent } from './form-view/form-view.component';
 registerLocaleData(localeFr, 'fr');
 
 @NgModule({
   declarations: [
     AppComponent,
-    EntryComponent
+    EntryComponent,
+    TableViewComponent,
+    FormViewComponent
   ],
   imports: [
     MaterialModule,

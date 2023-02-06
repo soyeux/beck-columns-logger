@@ -1,18 +1,17 @@
 import { Component } from '@angular/core';
-import { map, take, tap } from 'rxjs';
-import { Entry } from './entry.model';
-import { EntryService } from './entry.service';
+import { map, take } from 'rxjs';
+import { Entry } from '../entry.model';
+import { EntryService } from '../entry.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-form-view',
+  templateUrl: './form-view.component.html',
+  styleUrls: ['./form-view.component.scss']
 })
-export class AppComponent {
+export class FormViewComponent {
 
   constructor(private service: EntryService) {
   }
-
 
   getEntries() {
     return this.service.get().pipe(map(datas => datas.sort((a, b) => b.date.valueOf() - a.date.valueOf())))
@@ -32,9 +31,20 @@ export class AppComponent {
     })
   }
 
+  addEntry() {
+    this.service.add()
+  }
+
+  delete(entry: Entry) {
+    this.service.remove(entry.id)
+  }
+
+  save(entry: Entry) {
+    this.service.edit(entry)
+  }
+
+  deleteAll() {
+    this.service.deleteAll()
+  }
+
 }
-
-
-//https://stackoverflow.com/questions/60499335/how-to-test-pwa-on-over-https-with-self-signed-openssl-certificate
-
-
