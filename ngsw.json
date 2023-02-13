@@ -1,0 +1,87 @@
+{
+  "configVersion": 1,
+  "timestamp": 1676278656229,
+  "index": "/beck-columns-logger/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/beck-columns-logger/159.e985924075b1fe78.js",
+        "/beck-columns-logger/735.54f6184ab33bf2f7.js",
+        "/beck-columns-logger/816.20533f9e4f26d767.js",
+        "/beck-columns-logger/favicon.ico",
+        "/beck-columns-logger/index.html",
+        "/beck-columns-logger/main.b10b7edcf7e1aad9.js",
+        "/beck-columns-logger/manifest.webmanifest",
+        "/beck-columns-logger/polyfills.8b6bf1f9dfcbd075.js",
+        "/beck-columns-logger/runtime.5d729045fec3996c.js",
+        "/beck-columns-logger/styles.20c7bdcd3433b78a.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/beck-columns-logger/assets/icons/icon-128x128.png",
+        "/beck-columns-logger/assets/icons/icon-144x144.png",
+        "/beck-columns-logger/assets/icons/icon-152x152.png",
+        "/beck-columns-logger/assets/icons/icon-192x192.png",
+        "/beck-columns-logger/assets/icons/icon-384x384.png",
+        "/beck-columns-logger/assets/icons/icon-512x512.png",
+        "/beck-columns-logger/assets/icons/icon-72x72.png",
+        "/beck-columns-logger/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/beck-columns-logger/159.e985924075b1fe78.js": "34910d814ca4a069a78f617524a22197c27a32f0",
+    "/beck-columns-logger/735.54f6184ab33bf2f7.js": "5de2493bc5ab572383a8d2d8e8309dfabc374b9f",
+    "/beck-columns-logger/816.20533f9e4f26d767.js": "2671a530437c2f6689213123469276ad3ccfe4dc",
+    "/beck-columns-logger/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/beck-columns-logger/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/beck-columns-logger/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/beck-columns-logger/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/beck-columns-logger/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/beck-columns-logger/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/beck-columns-logger/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/beck-columns-logger/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/beck-columns-logger/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
+    "/beck-columns-logger/index.html": "05662df2f67c519c188914f88e9eb455836b8ab0",
+    "/beck-columns-logger/main.b10b7edcf7e1aad9.js": "9eff2953dd640a6223210fc8dc6d61df48875b10",
+    "/beck-columns-logger/manifest.webmanifest": "57c21ecb0d7a27907854532b105adb0fa8af08d8",
+    "/beck-columns-logger/polyfills.8b6bf1f9dfcbd075.js": "0ff1fde186b88499faf380fe1aef021328639ae3",
+    "/beck-columns-logger/runtime.5d729045fec3996c.js": "1131b6713be3d44be285fb59a728e6719d0e4b0d",
+    "/beck-columns-logger/styles.20c7bdcd3433b78a.css": "c7dc95f871b7c693629ddf57de624031b05b2a56"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
