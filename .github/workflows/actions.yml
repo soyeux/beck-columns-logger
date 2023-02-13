@@ -2,7 +2,7 @@ name: Angular GitHub CI
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   ci:
@@ -24,4 +24,4 @@ jobs:
           npm ci
       - name: Build
         run: |
-          npm run build -- --prod
+          npm run build
